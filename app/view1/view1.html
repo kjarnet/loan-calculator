@@ -1,1 +1,25 @@
-<p>This is the partial for view 1.</p>
+Calculate your loan
+
+<div>
+    <div class="loan-parameter-input">
+        <label>Loan amount</label><br/>
+        <input type="text" placeholder="NOK" ng-model="inputParameters.amount"/>
+    </div>
+
+    <div class="loan-parameter-input">
+        <label>Down payment years</label><br/>
+        <input type="text" placeholder="years" ng-model="inputParameters.downPay"/>
+    </div>
+
+    <div class="loan-parameter-input">
+        <label>Interest rate</label><br/>
+        <input type="text" placeholder="%" ng-model="inputParameters.interest"/>
+    </div>
+</div>
+
+<div class="output-area">
+    Monthly payment<br/>
+    <span class="monthly-payment-output">{{output.monthly}}</span> kr
+
+</div>
+
