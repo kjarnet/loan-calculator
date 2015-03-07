@@ -1,24 +1,26 @@
-Calculate your loan
+<h1>Calculate your loan</h1>
 
 <div>
-    <div class="loan-parameter-input">
-        <label>Loan amount</label><br/>
-        <input type="text" placeholder="NOK" ng-model="inputParameters.amount"/>
-    </div>
+    <form>
+        <div class="loan-parameter-input">
+            <label>Loan amount</label><br/>
+            <input type="text" placeholder="NOK" ng-model="inputParameters.amount" ng-model-options="{debounce: 500}" />
+        </div>
 
-    <div class="loan-parameter-input">
-        <label>Down payment years</label><br/>
-        <input type="text" placeholder="years" ng-model="inputParameters.downPayYears"/>
-    </div>
+        <div class="loan-parameter-input">
+            <label>Down payment years</label><br/>
+            <input type="text" placeholder="years" ng-model="inputParameters.downPayYears" ng-model-options="{debounce: 500}" />
+        </div>
 
-    <div class="loan-parameter-input">
-        <label>Interest rate</label><br/>
-        <input type="text" placeholder="%" ng-model="inputParameters.interest"/>
-    </div>
+        <div class="loan-parameter-input">
+            <label>Interest rate</label><br/>
+            <input type="text" placeholder="%" ng-model="inputParameters.interest" ng-model-options="{debounce: 500}" />
+        </div>
+    </form>
 </div>
 
 <div class="output-area">
-    Monthly payment<br/>
+    Monthly payments<br/>
     <span class="monthly-payment-output">{{output.monthly}}</span> kr
 
 </div>
