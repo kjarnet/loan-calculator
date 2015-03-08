@@ -4,17 +4,17 @@
     <form>
         <div class="loan-parameter-input">
             <label>Loan amount</label><br/>
-            <input type="text" placeholder="NOK" ng-model="inputParameters.amount" ng-model-options="{debounce: 1000}" />
+            <input type="text" placeholder="NOK" data-ng-model="inputParameters.amount" data-ng-model-options="{debounce: 1000}" />
         </div>
 
         <div class="loan-parameter-input">
             <label>Down payment years</label><br/>
-            <input type="text" placeholder="years" ng-model="inputParameters.downPayYears" ng-model-options="{debounce: 1000}" />
+            <input type="text" placeholder="years" data-ng-model="inputParameters.downPayYears" data-ng-model-options="{debounce: 1000}" />
         </div>
 
         <div class="loan-parameter-input">
             <label>Interest rate</label><br/>
-            <input type="text" placeholder="%" ng-model="inputParameters.interest" ng-model-options="{debounce: 1000}" />
+            <input type="text" placeholder="%" data-ng-model="inputParameters.interest" data-ng-model-options="{debounce: 1000}" />
         </div>
     </form>
 </div>
