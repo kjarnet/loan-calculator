@@ -2,6 +2,7 @@
 
 <div>
     <form>
+
         <div class="loan-parameter-input">
             <label>Loan amount</label><br/>
             <input type="text" placeholder="NOK" data-ng-model="inputParameters.amount" data-ng-model-options="{debounce: 1000}" />
@@ -21,7 +22,6 @@
 
 <div class="output-area">
     Monthly payments<br/>
-    <span class="monthly-payment-output">{{output.monthly}}</span> kr
-
+    <cc-monthly-payments amount="inputParameters.amount" down-pay-years="inputParameters.downPayYears" interest="inputParameters.interest" /> kr
 </div>
 

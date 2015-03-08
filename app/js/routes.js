@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('loanCalculator.routes', ['ngRoute', 'loanCalculator.controllers'])
+angular.module('loanCalculator.routes', ['ngRoute', 'loanCalculator.controllers', 'loanCalculator.directives'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/view1', {
