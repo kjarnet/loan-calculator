@@ -1,21 +1,7 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('loanCalculator.controllers', ['loanCalculator.services'])
 
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/view1', {
-      templateUrl: 'partials/view1.html',
-      controller : 'View1Ctrl'
-    });
-  }])
-  .factory('calculateLoan', ['$http', function ($http) {
-    return function (params) {
-      return $http.jsonp(
-        "https://cfs-ws-itera.cicero.no/cfp/6/ws/rest/calculator/calculateLoan?_jsonp=JSON_CALLBACK",
-        {method: 'GET', params: params}
-      );
-    };
-  }])
   .controller('View1Ctrl', ['$scope', 'calculateLoan',
     function ($scope, calculateLoan) {
       $scope.inputParameters = {

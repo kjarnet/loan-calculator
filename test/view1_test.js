@@ -1,8 +1,8 @@
 'use strict';
 
-describe('myApp.view1 module', function() {
+describe('loanCalculator.controllers module', function() {
 
-  beforeEach(module('myApp.view1'));
+  beforeEach(module('loanCalculator.controllers'));
 
   describe('view1 controller', function(){
     var scope, ctrl;
