@@ -3,25 +3,15 @@
 <div>
     <form>
 
-        <div class="loan-parameter-input">
-            <label>Loan amount</label><br/>
-            <input type="text" placeholder="NOK" data-ng-model="inputParameters.amount" data-ng-model-options="{debounce: 1000}" />
-        </div>
+        <cc-loan-parameter-input label-text="Loan amount" units="NOK" input-parameter="inputParameters.amount"></cc-loan-parameter-input>
+        <cc-loan-parameter-input label-text="Down payment years" units="years" input-parameter="inputParameters.downPayYears"></cc-loan-parameter-input>
+        <cc-loan-parameter-input label-text="Interest rate" units="%" input-parameter="inputParameters.interest"></cc-loan-parameter-input>
 
-        <div class="loan-parameter-input">
-            <label>Down payment years</label><br/>
-            <input type="text" placeholder="years" data-ng-model="inputParameters.downPayYears" data-ng-model-options="{debounce: 1000}" />
-        </div>
-
-        <div class="loan-parameter-input">
-            <label>Interest rate</label><br/>
-            <input type="text" placeholder="%" data-ng-model="inputParameters.interest" data-ng-model-options="{debounce: 1000}" />
-        </div>
     </form>
 </div>
 
 <div class="output-area">
     Monthly payments<br/>
-    <cc-monthly-payments amount="inputParameters.amount" down-pay-years="inputParameters.downPayYears" interest="inputParameters.interest" /> kr
+    {{output.monthlyPayments}} NOK
 </div>
 
