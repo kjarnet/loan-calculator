@@ -15,25 +15,35 @@
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-  </ul>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div data-ng-view></div>
+  <h1>Calculate your loan</h1>
+  <div data-ng-controller="CalculatorFormCtrl">
+
+      <form>
+
+          <cc-loan-parameter-input label-text="Loan amount" units="NOK" input-parameter="inputParameters.amount"></cc-loan-parameter-input>
+          <cc-loan-parameter-input label-text="Down payment years" units="years" input-parameter="inputParameters.downPayYears"></cc-loan-parameter-input>
+          <cc-loan-parameter-input label-text="Interest rate" units="%" input-parameter="inputParameters.interest"></cc-loan-parameter-input>
+
+      </form>
+
+      <div class="output-area">
+          Monthly payments<br/>
+          {{output.monthlyPayments}} NOK
+      </div>
+  </div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
   <script src="js/controllers.js"></script>
-  <script src="js/routes.js"></script>
   <script src="js/services.js"></script>
   <script src="js/directives.js"></script>
 </body>

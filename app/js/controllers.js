@@ -2,7 +2,7 @@
 
 angular.module('loanCalculator.controllers', [])
 
-  .controller('View1Ctrl', ['$scope', 'calculateLoanService', function ($scope, calculateLoanService) {
+  .controller('CalculatorFormCtrl', ['$scope', 'calculateLoanService', function ($scope, calculateLoanService) {
     $scope.inputParameters = {
       amount      : 2560000,
       downPayYears: 20,
