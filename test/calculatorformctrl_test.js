@@ -7,9 +7,11 @@ describe('loanCalculator.controllers module', function() {
   describe('Calculator Form controller', function(){
     var scope, ctrl, calculateLoanServiceDeferred, calculateLoanMock;
     var serverResponse = {
-      amortizationSchedule: [
-        {payment: 100}
-      ]
+      data: {
+        amortizationSchedule: [
+          {payment: 100}
+        ]
+      }
     };
 
     beforeEach(inject(function($rootScope, $controller, $q) {
