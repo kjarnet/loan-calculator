@@ -1,0 +1,16 @@
+      <form>
+          <label>Loan amount<br/>
+              <input type="number" data-ng-model="inputAmount" data-ng-model-options="{debounce: 1000}" />NOK
+          </label>
+          <label>Down payment years<br/>
+              <input type="number" data-ng-model="inputDownPayYears" data-ng-model-options="{debounce: 1000}" />years
+          </label>
+          <label>Interest rate<br/>
+              <input type="number" data-ng-model="inputInterest" data-ng-model-options="{debounce: 1000}" />%
+          </label>
+      </form>
+
+      <div class="output-area">
+          Monthly payments<br/>
+          {{outputMonthlyPayments}} NOK
+      </div>

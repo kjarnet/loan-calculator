@@ -21,24 +21,8 @@
   <![endif]-->
 
   <h1>Calculate your loan</h1>
-  <div data-ng-controller="CalculatorFormCtrl">
-
-      <form>
-          <label>Loan amount<br/>
-              <input type="number" data-ng-model="inputParameters.amount" data-ng-model-options="{debounce: 1000}" />NOK
-          </label>
-          <label>Down payment years<br/>
-              <input type="number" data-ng-model="inputParameters.downPayYears" data-ng-model-options="{debounce: 1000}" />years
-          </label>
-          <label>Interest rate<br/>
-              <input type="number" data-ng-model="inputParameters.interest" data-ng-model-options="{debounce: 1000}" />%
-          </label>
-      </form>
-
-      <div class="output-area">
-          Monthly payments<br/>
-          {{output.monthlyPayments}} NOK
-      </div>
+  <div data-ng-controller="InitCtrl">
+      <cc-loan-parameter-input amount="inputParameters.amount" down-pay-years="inputParameters.downPayYears" interest="inputParameters.interest"></cc-loan-parameter-input>
   </div>
 
   <!-- In production use:

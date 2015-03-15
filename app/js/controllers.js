@@ -1,22 +1,24 @@
 'use strict';
 
-angular.module('loanCalculator.controllers', [])
+angular.module('loanCalculator.controllers', ['loanCalculator.services'])
 
-  .controller('CalculatorFormCtrl', ['$scope', 'calculateLoanService', function ($scope, calculateLoanService) {
+  .controller('InitCtrl', ['$scope', function ($scope) {
     $scope.inputParameters = {
       amount      : 2560000,
       downPayYears: 20,
       interest    : 3.45
     };
 
-    $scope.output = {
-      monthlyPayments: 0
-    };
+  }])
+
+  .controller('CalculatorFormCtrl', ['$scope', 'calculateLoanService', function ($scope, calculateLoanService) {
+
+    $scope.outputMonthlyPayments = 0;
 
     function calculateLoan(serviceArgs) {
       calculateLoanService(serviceArgs).then(function (response) {
         console.log('fetched data: ', response);
-        $scope.output.monthlyPayments = Math.round(response.data.amortizationSchedule[0].payment);
+        $scope.outputMonthlyPayments = Math.round(response.data.amortizationSchedule[0].payment);
       });
     }
 
@@ -24,20 +26,20 @@ angular.module('loanCalculator.controllers', [])
     var args = {
       loanRaisingMonth         : now.month(),
       loanRaisingYear          : now.year(),
-      principalAmount          : $scope.inputParameters.amount,
-      annualNominalInterestRate: $scope.inputParameters.interest,
-      totalNumberOfPayments    : $scope.inputParameters.downPayYears * 12
+      principalAmount          : $scope.inputAmount,
+      annualNominalInterestRate: $scope.inputInterest,
+      totalNumberOfPayments    : $scope.inputDownPayYears * 12
     };
 
-    $scope.$watch('inputParameters.amount', function (newVal) {
+    $scope.$watch('inputAmount', function (newVal) {
       args.principalAmount = newVal;
       calculateLoan(args);
     });
-    $scope.$watch('inputParameters.interest', function (newVal) {
+    $scope.$watch('inputInterest', function (newVal) {
       args.annualNominalInterestRate = newVal;
       calculateLoan(args);
     });
-    $scope.$watch('inputParameters.downPayYears', function (newVal) {
+    $scope.$watch('inputDownPayYears', function (newVal) {
       args.totalNumberOfPayments = newVal * 12;
       calculateLoan(args);
     });

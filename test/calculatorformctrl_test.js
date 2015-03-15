@@ -23,12 +23,12 @@ describe('loanCalculator.controllers module', function() {
       ctrl = $controller('CalculatorFormCtrl', {$scope: scope, calculateLoanService: calculateLoanMock});
     }));
 
-    it('should ....', inject(function() {
+    it('should calculate monthly payments when an input is changed', inject(function() {
       //spec body
-      scope.inputParameters.amount = 1;
+      scope.inputAmount = 1;
       calculateLoanServiceDeferred.resolve(serverResponse);
       scope.$apply();
-      expect(scope.output.monthlyPayments).toBe(100);
+      expect(scope.outputMonthlyPayments).toBe(100);
     }));
 
   });
