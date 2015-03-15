@@ -14,7 +14,7 @@ angular.module('loanCalculator.controllers', [])
     };
 
     function calculateLoan(serviceArgs) {
-      calculateLoanService(serviceArgs).success(function (data) {
+      calculateLoanService(serviceArgs).then(function (data) {
         console.log('fetched data: ', data);
         $scope.output.monthlyPayments = Math.round(data.amortizationSchedule[0].payment);
       });
