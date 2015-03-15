@@ -4,18 +4,35 @@ describe('loanCalculator.controllers module', function() {
 
   beforeEach(module('loanCalculator.controllers'));
 
-  describe('view1 controller', function(){
+  describe('Calculator Form controller', function(){
     var scope, ctrl;
+    var serverResponse = {
+      amortizationSchedule: [
+        {payment: 100}
+      ]
+    };
+    var calculateLoanMock;
 
-    beforeEach(inject(function($rootScope, $controller) {
+    beforeEach(inject(function($rootScope, $controller, $q) {
       scope = $rootScope.$new();
-      ctrl = $controller('View1Ctrl', {$scope: scope});
+      calculateLoanMock = function (args) {
+        // TODO: use $q instead.
+        return {
+          success: function (callback) {
+            callback(serverResponse);
+            scope.$apply();
+          }
+        };
+      };
+      ctrl = $controller('CalculatorFormCtrl', {$scope: scope, calculateLoanService: calculateLoanMock});
     }));
 
     it('should ....', inject(function($controller) {
       //spec body
-      expect(ctrl).toBeDefined();
+      scope.inputParameters.amount = 1;
+      expect(scope.output.monthlyPayments).toBe(100);
     }));
 
   });
+
 });

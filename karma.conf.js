@@ -5,6 +5,7 @@ module.exports = function(config){
     basePath : './',
 
     files : [
+      'app/bower_components/moment/moment.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/js/**/*.js',
