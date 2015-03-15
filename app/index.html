@@ -24,11 +24,15 @@
   <div data-ng-controller="CalculatorFormCtrl">
 
       <form>
-
-          <cc-loan-parameter-input label-text="Loan amount" units="NOK" input-parameter="inputParameters.amount"></cc-loan-parameter-input>
-          <cc-loan-parameter-input label-text="Down payment years" units="years" input-parameter="inputParameters.downPayYears"></cc-loan-parameter-input>
-          <cc-loan-parameter-input label-text="Interest rate" units="%" input-parameter="inputParameters.interest"></cc-loan-parameter-input>
-
+          <label>Loan amount<br/>
+              <input type="number" data-ng-model="inputParameters.amount" data-ng-model-options="{debounce: 1000}" />NOK
+          </label>
+          <label>Down payment years<br/>
+              <input type="number" data-ng-model="inputParameters.downPayYears" data-ng-model-options="{debounce: 1000}" />years
+          </label>
+          <label>Interest rate<br/>
+              <input type="number" data-ng-model="inputParameters.interest" data-ng-model-options="{debounce: 1000}" />%
+          </label>
       </form>
 
       <div class="output-area">
