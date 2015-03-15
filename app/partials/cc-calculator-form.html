@@ -1,0 +1,51 @@
+
+  <form name="form" novalidate>
+      <label>Loan amount<br/>
+          <input type="number" required cc-integer min="10" max="100000000" name="amount" data-ng-model="inputAmount" data-ng-model-options="{debounce: 1000}" />NOK
+      </label>
+      <br />
+      <span data-ng-show="form.amount.$error.required">
+          Loan amount must be specified!
+          <br />
+      </span>
+      <span data-ng-show="form.amount.$error.ccInteger">
+          Amount must be an integer.
+          <br />
+      </span>
+      <span data-ng-show="form.amount.$error.min || form.amount.$error.max">
+          The value must be in range 10 to 100.000.000!
+          <br />
+      </span>
+      <label>Down payment years<br/>
+          <input type="number" required cc-integer min="2" max="50" name="downPayYears" data-ng-model="inputDownPayYears" data-ng-model-options="{debounce: 1000}" />years
+      </label>
+      <br />
+      <span data-ng-show="form.downPayYears.$error.required">
+          Down payment years must be specified!
+          <br />
+      </span>
+      <span data-ng-show="form.downPayYears.$error.ccInteger">
+          Down payment years must be an integer.
+          <br />
+      </span>
+      <span data-ng-show="form.downPayYears.$error.min || form.downPayYears.$error.max">
+          The value must be in range 2 to 50!
+          <br />
+      </span>
+      <label>Interest rate<br/>
+          <input type="number" required min="1" max="10" name="interest" data-ng-model="inputInterest" data-ng-model-options="{debounce: 1000}" />%
+      </label>
+      <span data-ng-show="form.interest.$error.required">
+          Interest rate must be specified!
+          <br />
+      </span>
+      <span data-ng-show="form.interest.$error.min || form.interest.$error.max">
+          The value must be in range 1 to 10!
+          <br />
+      </span>
+  </form>
+
+  <div class="output-area">
+      Monthly payments<br/>
+      {{outputMonthlyPayments}} NOK
+  </div>
