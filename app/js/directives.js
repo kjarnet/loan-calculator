@@ -2,7 +2,7 @@
 
 angular.module('loanCalculator.directives', ['loanCalculator.controllers', 'loanCalculator.services'])
 
-  .directive('ccInteger', 'testForInteger', function (testForInteger) {
+  .directive('ccInteger', ['testForInteger', function (testForInteger) {
     return {
       require: 'ngModel',
       link   : function (scope, elm, attrs, ngModelController) {
@@ -14,7 +14,7 @@ angular.module('loanCalculator.directives', ['loanCalculator.controllers', 'loan
         };
       }
     };
-  })
+  }])
 
   .directive('ccCalculatorForm', [function () {
     return {
