@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('loanCalculator.directives', ['loanCalculator.controllers'])
+angular.module('loanCalculator.directives', ['loanCalculator.controllers', 'loanCalculator.services'])
 
-  .directive('ccInteger', function () {
+  .directive('ccInteger', 'testForInteger', function (testForInteger) {
     return {
       require: 'ngModel',
       link   : function (scope, elm, attrs, ngModelController) {
@@ -10,7 +10,7 @@ angular.module('loanCalculator.directives', ['loanCalculator.controllers'])
           if (ngModelController.$isEmpty(modelValue)) {
             return true;// consider empty models to be valid
           }
-          return !!/^\-?\d+$/.test(viewValue);
+          return testForInteger(viewValue);
         };
       }
     };

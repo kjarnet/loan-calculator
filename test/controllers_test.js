@@ -20,7 +20,7 @@ describe('loanCalculator.controllers module', function() {
       calculateLoanMock = function (args) {
         return calculateLoanServiceDeferred.promise;
       };
-      ctrl = $controller('CalculatorFormCtrl', {$scope: scope, calculateLoanService: calculateLoanMock});
+      ctrl = $controller('CalculatorFormCtrl', {$scope: scope, calculateLoanFactory: calculateLoanMock});
     }));
 
     it('should calculate monthly payments when an input is changed', inject(function() {

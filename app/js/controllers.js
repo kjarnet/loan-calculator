@@ -11,12 +11,12 @@ angular.module('loanCalculator.controllers', ['loanCalculator.services'])
 
   }])
 
-  .controller('CalculatorFormCtrl', ['$scope', 'calculateLoanService', function ($scope, calculateLoanService) {
+  .controller('CalculatorFormCtrl', ['$scope', 'calculateLoanFactory', function ($scope, calculateLoanFactory) {
 
     $scope.outputMonthlyPayments = 0;
 
     function calculateLoan(serviceArgs) {
-      calculateLoanService(serviceArgs).then(function (response) {
+      calculateLoanFactory(serviceArgs).then(function (response) {
         console.log('fetched data: ', response);
         $scope.outputMonthlyPayments = Math.round(response.data.amortizationSchedule[0].payment);
       });
