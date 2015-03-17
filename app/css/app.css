@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+h1 {
+    text-align: center;
+}
+
 .loan-input {
     text-align: center;
 }
