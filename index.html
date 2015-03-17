@@ -21,7 +21,11 @@
   <![endif]-->
 
   <div data-ng-controller="InitCtrl" class="container">
-      <h1>Calculate your loan</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Calculate your loan</h1>
+        </div>
+      </div>
       <cc-calculator-form amount="inputParameters.amount" down-pay-years="inputParameters.downPayYears" interest="inputParameters.interest"></cc-calculator-form>
   </div>
 
